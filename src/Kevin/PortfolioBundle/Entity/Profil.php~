@@ -1,0 +1,450 @@
+<?php
+
+namespace Kevin\PortfolioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Profil
+ *
+ * @ORM\Table(name="profil")
+ * @ORM\Entity(repositoryClass="Kevin\PortfolioBundle\Repository\ProfilRepository")
+ */
+class Profil
+{
+    /**
+     * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade={"remove", "persist"})
+     */
+    private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Experience", mappedBy="profil", cascade={"remove", "persist"})
+     */
+    private $experiences;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Study", mappedBy="profil", cascade={"remove", "persist"})
+     */
+    private $studies;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\ProfilSkill", mappedBy="profil")
+     */
+    private $profilSkills;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255)
+     */
+    private $firstname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="country", type="string", length=255)
+     */
+    private $country;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255)
+     */
+    private $city;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="postalCode", type="integer")
+     */
+    private $postalCode;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255)
+     */
+    private $address;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthdayDate", type="date", nullable=true)
+     */
+    private $birthdayDate;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", unique=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phoneNumber", type="string")
+     */
+    private $phoneNumber;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Profil
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+     * @return Profil
+     */
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
+
+    /**
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set country
+     *
+     * @param string $country
+     *
+     * @return Profil
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+
+        return $this;
+    }
+
+    /**
+     * Get country
+     *
+     * @return string
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return Profil
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set postalCode
+     *
+     * @param integer $postalCode
+     *
+     * @return Profil
+     */
+    public function setPostalCode($postalCode)
+    {
+        $this->postalCode = $postalCode;
+
+        return $this;
+    }
+
+    /**
+     * Get postalCode
+     *
+     * @return int
+     */
+    public function getPostalCode()
+    {
+        return $this->postalCode;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     *
+     * @return Profil
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set birthdayDate
+     *
+     * @param \DateTime $birthdayDate
+     *
+     * @return Profil
+     */
+    public function setBirthdayDate($birthdayDate)
+    {
+        $this->birthdayDate = $birthdayDate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthdayDate
+     *
+     * @return \DateTime
+     */
+    public function getBirthdayDate()
+    {
+        return $this->birthdayDate;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Profil
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->experiences = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->studies = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->profilSkills = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Kevin\PortfolioBundle\Entity\Image $image
+     *
+     * @return Profil
+     */
+    public function setImage(\Kevin\PortfolioBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Kevin\PortfolioBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Add experience
+     *
+     * @param \Kevin\PortfolioBundle\Entity\Experience $experience
+     *
+     * @return Profil
+     */
+    public function addExperience(\Kevin\PortfolioBundle\Entity\Experience $experience)
+    {
+        $this->experiences[] = $experience;
+
+        return $this;
+    }
+
+    /**
+     * Remove experience
+     *
+     * @param \Kevin\PortfolioBundle\Entity\Experience $experience
+     */
+    public function removeExperience(\Kevin\PortfolioBundle\Entity\Experience $experience)
+    {
+        $this->experiences->removeElement($experience);
+    }
+
+    /**
+     * Get experiences
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getExperiences()
+    {
+        return $this->experiences;
+    }
+
+    /**
+     * Add study
+     *
+     * @param \Kevin\PortfolioBundle\Entity\Study $study
+     *
+     * @return Profil
+     */
+    public function addStudy(\Kevin\PortfolioBundle\Entity\Study $study)
+    {
+        $this->studies[] = $study;
+
+        return $this;
+    }
+
+    /**
+     * Remove study
+     *
+     * @param \Kevin\PortfolioBundle\Entity\Study $study
+     */
+    public function removeStudy(\Kevin\PortfolioBundle\Entity\Study $study)
+    {
+        $this->studies->removeElement($study);
+    }
+
+    /**
+     * Get studies
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getStudies()
+    {
+        return $this->studies;
+    }
+
+    /**
+     * Add profilSkill
+     *
+     * @param \Kevin\PortfolioBundle\Entity\ProfilSkill $profilSkill
+     *
+     * @return Profil
+     */
+    public function addProfilSkill(\Kevin\PortfolioBundle\Entity\ProfilSkill $profilSkill)
+    {
+        $this->profilSkills[] = $profilSkill;
+
+        return $this;
+    }
+
+    /**
+     * Remove profilSkill
+     *
+     * @param \Kevin\PortfolioBundle\Entity\ProfilSkill $profilSkill
+     */
+    public function removeProfilSkill(\Kevin\PortfolioBundle\Entity\ProfilSkill $profilSkill)
+    {
+        $this->profilSkills->removeElement($profilSkill);
+    }
+
+    /**
+     * Get profilSkills
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProfilSkills()
+    {
+        return $this->profilSkills;
+    }
+}

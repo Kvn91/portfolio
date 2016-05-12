@@ -1,0 +1,227 @@
+<?php
+
+namespace Kevin\PortfolioBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Experience
+ *
+ * @ORM\Table(name="experience")
+ * @ORM\Entity(repositoryClass="Kevin\PortfolioBundle\Repository\ExperienceRepository")
+ */
+class Experience
+{
+    /**
+     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="experiences")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $profil;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="beginYear", type="integer")
+     */
+    private $beginYear;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="endYear", type="integer", nullable=true)
+     */
+    private $endYear;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="beginMonth", type="integer")
+     */
+    private $beginMonth;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="endMonth", type="integer", nullable=true)
+     */
+    private $endMonth;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="establishment", type="string", length=255)
+     */
+    private $establishment;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255)
+     */
+    private $title;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set beginYear
+     *
+     * @param integer $beginYear
+     *
+     * @return Experience
+     */
+    public function setBeginYear($beginYear)
+    {
+        $this->beginYear = $beginYear;
+
+        return $this;
+    }
+
+    /**
+     * Get beginYear
+     *
+     * @return int
+     */
+    public function getBeginYear()
+    {
+        return $this->beginYear;
+    }
+
+    /**
+     * Set endYear
+     *
+     * @param integer $endYear
+     *
+     * @return Experience
+     */
+    public function setEndYear($endYear)
+    {
+        $this->endYear = $endYear;
+
+        return $this;
+    }
+
+    /**
+     * Get endYear
+     *
+     * @return int
+     */
+    public function getEndYear()
+    {
+        return $this->endYear;
+    }
+
+    /**
+     * Set beginMonth
+     *
+     * @param integer $beginMonth
+     *
+     * @return Experience
+     */
+    public function setBeginMonth($beginMonth)
+    {
+        $this->beginMonth = $beginMonth;
+
+        return $this;
+    }
+
+    /**
+     * Get beginMonth
+     *
+     * @return int
+     */
+    public function getBeginMonth()
+    {
+        return $this->beginMonth;
+    }
+
+    /**
+     * Set endMonth
+     *
+     * @param integer $endMonth
+     *
+     * @return Experience
+     */
+    public function setEndMonth($endMonth)
+    {
+        $this->endMonth = $endMonth;
+
+        return $this;
+    }
+
+    /**
+     * Get endMonth
+     *
+     * @return int
+     */
+    public function getEndMonth()
+    {
+        return $this->endMonth;
+    }
+
+    /**
+     * Set establishment
+     *
+     * @param string $establishment
+     *
+     * @return Experience
+     */
+    public function setEstablishment($establishment)
+    {
+        $this->establishment = $establishment;
+
+        return $this;
+    }
+
+    /**
+     * Get establishment
+     *
+     * @return string
+     */
+    public function getEstablishment()
+    {
+        return $this->establishment;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Experience
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+}
+

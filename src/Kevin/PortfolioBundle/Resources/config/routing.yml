@@ -1,0 +1,23 @@
+kevin_portfolio_homepage:
+    path:     /
+    defaults:
+        _controller: KevinPortfolioBundle:Profil:index
+
+kevin_portfolio_add:
+    path:     /add
+    defaults:
+        _controller: KevinPortfolioBundle:Profil:add
+
+kevin_portfolio_edit:
+    path:     /edit/{id}
+    defaults:
+        _controller: KevinPortfolioBundle:Profil:edit
+    requirements:
+        id: \d+
+
+kevin_portfolio_delete:
+    path:     /delete/{id}
+    defaults:
+        _controller: KevinPortfolioBundle:Profil:delete
+    requirements:
+        id: \d+
