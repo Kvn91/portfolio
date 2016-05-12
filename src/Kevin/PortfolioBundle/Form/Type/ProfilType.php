@@ -2,11 +2,12 @@
 
 namespace Kevin\PortfolioBundle\Form\Type;
 
-
 use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -22,10 +23,10 @@ class ProfilType extends AbstractType
      */
    public function buildForm(FormBuilderInterface $builder, array $options)
    {
-       $yearsArray = range(date('Y') - 100, intval(date('Y')));
+       $yearsArray = range(date('Y') - 100, date('Y'));
 
        $builder
-           ->add('name',         YearType::class)
+           ->add('name',         TextType::class)
            ->add('firstname',    TextType::class)
            ->add('birthdayDate', BirthdayType::class, array('years' => $yearsArray))
            ->add('country',      CountryType::class)
@@ -36,6 +37,12 @@ class ProfilType extends AbstractType
            ->add('email',        EmailType::class)
            ->add('phoneNumber',  PhoneNumberType::class, array('widget' => PhoneNumberType::WIDGET_COUNTRY_CHOICE))
            ->add('image',        ImageType::class, array('required' => false))
+           ->add('studies',      CollectionType::class, array(
+                   'entry_type'   => StudyType::class,
+                   'allow_add'    => true,
+                   'allow_delete' => true,
+               )
+           )
            ->add('save',         SubmitType::class)
        ;
    }

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class YearType extends AbstractType
+class MonthType extends AbstractType
 {
    public function getParent()
    {
@@ -15,15 +15,15 @@ class YearType extends AbstractType
 
     public function getName()
     {
-        return 'year';
+        return 'month';
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $years = range(1950, date('Y'));
+        $months = range(1, 12);
 
         $resolver->setDefaults(array(
-            'choices' => array_combine($years, $years)
+            'choices' => array_combine($months, $months)
         ));
     }
 }
