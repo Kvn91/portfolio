@@ -1,6 +1,6 @@
 <?php
 
-namespace Kevin\PortfolioBundle\Form\Type;
+namespace Kevin\PortfolioBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;

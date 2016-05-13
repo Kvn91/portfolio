@@ -3,7 +3,7 @@
 namespace Kevin\PortfolioBundle\Controller;
 
 use Kevin\PortfolioBundle\Entity\Profil;
-use Kevin\PortfolioBundle\Form\Type\ProfilType;
+use Kevin\PortfolioBundle\Form\ProfilType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 

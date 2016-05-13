@@ -1,9 +1,8 @@
 <?php
 
-namespace Kevin\PortfolioBundle\Form\Type;
+namespace Kevin\PortfolioBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,10 +16,10 @@ class StudyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('beginYear',     DateType::class)
-            ->add('endYear',       DateType::class)
-            ->add('beginMonth',    DateType::class)
-            ->add('endMonth',      DateType::class)
+            ->add('beginYear',     YearType::class)
+            ->add('beginMonth',    MonthType::class)
+            ->add('endYear',       YearType::class)
+            ->add('endMonth',      MonthType::class)
             ->add('establishment', TextType::class)
             ->add('title',         TextType::class)
         ;

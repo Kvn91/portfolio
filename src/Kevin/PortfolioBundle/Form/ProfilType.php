@@ -1,13 +1,12 @@
 <?php
 
-namespace Kevin\PortfolioBundle\Form\Type;
+namespace Kevin\PortfolioBundle\Form;
 
 use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -39,6 +38,12 @@ class ProfilType extends AbstractType
            ->add('image',        ImageType::class, array('required' => false))
            ->add('studies',      CollectionType::class, array(
                    'entry_type'   => StudyType::class,
+                   'allow_add'    => true,
+                   'allow_delete' => true,
+               )
+           )
+           ->add('experiences',      CollectionType::class, array(
+                   'entry_type'   => ExperienceType::class,
                    'allow_add'    => true,
                    'allow_delete' => true,
                )
