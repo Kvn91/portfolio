@@ -24,15 +24,15 @@ class Profil
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Experience", mappedBy="profil", cascade={"remove", "persist"})
-     */
-    private $experiences;
-
-    /**
      * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Study", mappedBy="profil", cascade={"remove", "persist"})
      */
     private $studies;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Experience", mappedBy="profil", cascade={"remove", "persist"})
+     */
+    private $experiences;
+    
     /**
      * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\ProfilSkill", mappedBy="profil")
      */
@@ -79,6 +79,7 @@ class Profil
      * @var int
      *
      * @ORM\Column(name="postalCode", type="integer")
+     * @Assert\Length(min=5, max=5)
      */
     private $postalCode;
 

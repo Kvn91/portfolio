@@ -6,20 +6,74 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MonthType extends AbstractType
 {
-   public function getParent()
-   {
-       return DateType::class;
-   }
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->remove('year')
-            ->remove('day')
-        ;
+//        $monthsList = $this->formatMonths($options);
+//
+//        $builder
+//            ->add('month', ChoiceType::class, array('choices' => $monthsList))
+//        ;
+    }
+
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        var_dump($view->vars['choices']);exit;
+        $view->vars['choices'] = $this->formatMonths($options);
+    }
+
+    private function formatMonths(array $options)
+    {
+        $result = array();
+        $formattedMonths = array();
+
+        foreach ($options['choices'] as $month) {
+            $formattedMonths[gmmktime(0, 0, 0, $month, 15)] = $month;
+        }
+
+        $dateFormat = is_int($options['format']) ? $options['format'] : DateType::DEFAULT_FORMAT;
+        $timeFormat = \IntlDateFormatter::NONE;
+        $calendar = \IntlDateFormatter::GREGORIAN;
+
+        $formatter = new \IntlDateFormatter(
+            \Locale::getDefault(),
+            $dateFormat,
+            $timeFormat,
+            null,
+            $calendar,
+            'MMM'
+        );
+
+        // new \IntlDateFormatter may return null instead of false in case of failure, see https://bugs.php.net/bug.php?id=66323
+        if (!$formatter) {
+            throw new InvalidOptionsException(intl_get_error_message(), intl_get_error_code());
+        }
+
+        $formatter->setTimeZone('UTC');
+        $formatter->setLenient(false);
+
+        foreach ($formattedMonths as $timestamp => $choice) {
+            $result[$formatter->format($timestamp)] = $choice;
+        }
+
+        return $result;
+    }
+
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'choices' => range(1, 12),
+            'format' => DateType::DEFAULT_FORMAT,
+        ));
+    }
+
+    public function getParent()
+    {
+        return ChoiceType::class;
     }
 }

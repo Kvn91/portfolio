@@ -2,6 +2,7 @@
 
 namespace Kevin\PortfolioBundle\Form;
 
+use libphonenumber\PhoneNumberFormat;
 use Misd\PhoneNumberBundle\Form\Type\PhoneNumberType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
@@ -34,7 +35,7 @@ class ProfilType extends AbstractType
            ->add('address',      TextType::class)
            ->add('title',        TextType::class)
            ->add('email',        EmailType::class)
-           ->add('phoneNumber',  PhoneNumberType::class, array('widget' => PhoneNumberType::WIDGET_COUNTRY_CHOICE))
+           ->add('phoneNumber',  PhoneNumberType::class, array('default_region' => 'FR', 'format' => PhoneNumberFormat::NATIONAL))
            ->add('image',        ImageType::class, array('required' => false))
            ->add('studies',      CollectionType::class, array(
                    'entry_type'   => StudyType::class,
