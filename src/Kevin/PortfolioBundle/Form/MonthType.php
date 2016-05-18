@@ -2,10 +2,12 @@
 
 namespace Kevin\PortfolioBundle\Form;
 
+use Kevin\PortfolioBundle\Form\DataTransformer\MonthSelectTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormEvents;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,8 +18,10 @@ class MonthType extends AbstractType
     {
         $monthsList = $this->formatMonths($options);
 
+        $transformer = new MonthSelectTransformer();
         $builder
             ->add('month', ChoiceType::class, array('choices' => $monthsList))
+            ->addModelTransformer($transformer);
         ;
     }
 
@@ -64,10 +68,5 @@ class MonthType extends AbstractType
             'choices' => range(1, 12),
             'format' => DateType::DEFAULT_FORMAT,
         ));
-    }
-
-    public function getParent()
-    {
-        return ChoiceType::class;
     }
 }

@@ -16,13 +16,11 @@ class StudyType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $years = range(Date('Y'), Date('Y') - 50);
-
         $builder
             ->add('beginYear',     YearType::class)
-            ->add('beginMonth',    TextType::class)
+            ->add('beginMonth',    MonthType::class)
             ->add('endYear',       YearType::class)
-            ->add('endMonth',      TextType::class)
+            ->add('endMonth',      MonthType::class)
             ->add('establishment', TextType::class)
             ->add('title',         TextType::class)
         ;
