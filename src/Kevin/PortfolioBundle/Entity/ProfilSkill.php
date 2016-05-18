@@ -12,13 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
 class ProfilSkill
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="profilSkills")
+     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="profilSkills", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $profil;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Skill")
+     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Skill", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $skill;

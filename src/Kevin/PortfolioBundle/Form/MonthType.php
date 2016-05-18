@@ -14,17 +14,11 @@ class MonthType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-//        $monthsList = $this->formatMonths($options);
-//
-//        $builder
-//            ->add('month', ChoiceType::class, array('choices' => $monthsList))
-//        ;
-    }
+        $monthsList = $this->formatMonths($options);
 
-    public function buildView(FormView $view, FormInterface $form, array $options)
-    {
-        var_dump($view->vars['choices']);exit;
-        $view->vars['choices'] = $this->formatMonths($options);
+        $builder
+            ->add('month', ChoiceType::class, array('choices' => $monthsList))
+        ;
     }
 
     private function formatMonths(array $options)

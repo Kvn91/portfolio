@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Experience
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="experiences")
+     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="experiences", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $profil;

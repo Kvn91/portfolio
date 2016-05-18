@@ -41,14 +41,15 @@ class ProfilType extends AbstractType
                    'entry_type'   => StudyType::class,
                    'allow_add'    => true,
                    'allow_delete' => true,
+                   'by_reference' => false,
                )
            )
-           ->add('experiences',      CollectionType::class, array(
-                   'entry_type'   => ExperienceType::class,
-                   'allow_add'    => true,
-                   'allow_delete' => true,
-               )
-           )
+//           ->add('experiences',      CollectionType::class, array(
+//                   'entry_type'   => ExperienceType::class,
+//                   'allow_add'    => true,
+//                   'allow_delete' => true,
+//               )
+//           )
            ->add('save',         SubmitType::class)
        ;
    }

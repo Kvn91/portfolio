@@ -2,6 +2,7 @@
 
 namespace Kevin\PortfolioBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -324,9 +325,9 @@ class Profil
      */
     public function __construct()
     {
-        $this->experiences = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->studies = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->profilSkills = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->experiences = new ArrayCollection();
+        $this->studies = new ArrayCollection();
+        $this->profilSkills = new ArrayCollection();
     }
 
     /**
@@ -364,6 +365,8 @@ class Profil
     {
         $this->experiences[] = $experience;
 
+        $experience->setProfil($this);
+
         return $this;
     }
 
@@ -397,6 +400,7 @@ class Profil
     public function addStudy(\Kevin\PortfolioBundle\Entity\Study $study)
     {
         $this->studies[] = $study;
+        $study->setProfil($this);
 
         return $this;
     }
@@ -431,6 +435,8 @@ class Profil
     public function addProfilSkill(\Kevin\PortfolioBundle\Entity\ProfilSkill $profilSkill)
     {
         $this->profilSkills[] = $profilSkill;
+
+        $profilSkill->setProfil($this);
 
         return $this;
     }
