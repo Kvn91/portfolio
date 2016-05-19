@@ -13,6 +13,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProfilType extends AbstractType
@@ -62,5 +64,10 @@ class ProfilType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'Kevin\PortfolioBundle\Entity\Profil'
         ));
+    }
+
+    public function buildView(FormView $view, FormInterface $form, array $options)
+    {
+        $view->vars['studyname'] = 'study';
     }
 }

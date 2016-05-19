@@ -1,3 +1,5 @@
+{% form_theme form 'form/fields.html.twig' %}
+
 <h3>Formulaire de profil</h3>
 <div class="well">
     {{ form_start(form) }}
@@ -12,8 +14,8 @@
     {{ form_row(form.email) }}
     {{ form_row(form.phoneNumber) }}
     {{ form_row(form.image) }}
-    {{ form_row(form.studies) }}
-    <a href="#" id="add-study" class="btn btn-default">Ajouter une étude</a><br/><br/>
+
+    {{ form_widget(form.studies, { 'studyname': form.vars.studyname}) }}
     {#{{ form_row(form.experiences) }}#}
     {#<a href="#" id="add-experience" class="btn btn-default">Ajouter une expérience</a><br/><br/>#}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
@@ -26,7 +28,7 @@
         var $containerStudies = $('div#profil_studies');
 
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-        var index = $containerStudies.find(':input').length;
+        var indexStudies = $containerStudies.find(':input').length;
 
         // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
         $('#add-study').click(function(e) {
@@ -36,8 +38,8 @@
             return false;
         });
 
-        if (index == 0) {
-            addStudy($containerStudies);
+        if (indexStudies == 0) {
+            addStudy($containerStudies, indexStudies);
         } else {
             // S'il existe déjà des catégories, on ajoute un lien de suppression pour chacune d'entre elles
             $containerStudies.children('div').each(function() {
@@ -45,71 +47,31 @@
             });
         }
 
-        // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
-        var $containerExperiences = $('div#profil_experiences');
-
-        // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-        var index = $containerExperiences.find(':input').length;
-
-        // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
-        $('#add-experience').click(function(e) {
-            addExperience($containerExperiences);
-
-            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-            return false;
-        });
-
-        if (index == 0) {
-            addExperience($containerExperiences);
-        } else {
-            // S'il existe déjà des catégories, on ajoute un lien de suppression pour chacune d'entre elles
-            $containerExperiences.children('div').each(function() {
-                addDeleteLink($(this));
-            });
-        }
-
-        function addStudy($containerStudies) {
+        function addStudy($containerStudies, indexStudies) {
             // Dans le contenu de l'attribut « data-prototype », on remplace :
             // - le texte "__name__label__" qu'il contient par le label du champ
             // - le texte "__name__" qu'il contient par le numéro du champ
             var template = $containerStudies.attr('data-prototype')
-                    .replace(/__name__label__/g, 'Study n°' + (index+1))
-                    .replace(/__name__/g,        index)
-                    ;
+                    .replace(/__name__label__/g, 'Study n°' + (indexStudies+1))
+                    .replace(/__name__/g,        indexStudies)
+            ;
 
             // On crée un objet jquery qui contient ce template
             var $prototype = $(template);
-
-            // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
-            addDeleteLink($prototype);
 
             // On ajoute le prototype modifié à la fin de la balise <div>
             $containerStudies.append($prototype);
 
-            index++;
+            $("#study" + (indexStudies+1)).find('.remove').click( function () {
+                alert('in');
+            });
+            console.log($("#study" + (indexStudies+1)).find('.remove'));
+
+
+            indexStudies++;
         }
 
-        function addExperience($containerExperiences) {
-            // Dans le contenu de l'attribut « data-prototype », on remplace :
-            // - le texte "__name__label__" qu'il contient par le label du champ
-            // - le texte "__name__" qu'il contient par le numéro du champ
-            var template = $containerExperiences.attr('data-prototype')
-                    .replace(/__name__label__/g, 'Experience n°' + (index+1))
-                    .replace(/__name__/g,        index)
-                    ;
-
-            // On crée un objet jquery qui contient ce template
-            var $prototype = $(template);
-
-            // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
-            addDeleteLink($prototype);
-
-            // On ajoute le prototype modifié à la fin de la balise <div>
-            $containerExperiences.append($prototype);
-
-            index++;
-        }
-
+        /*
         function addDeleteLink($prototype) {
             // Création du lien
             var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
@@ -124,6 +86,6 @@
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
                 return false;
             });
-        }
+        }*/
     });
 </script>
