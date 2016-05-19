@@ -32,7 +32,8 @@
 
         // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
         $('#add-study').click(function(e) {
-            addStudy($containerStudies);
+            addStudy($containerStudies, indexStudies);
+            indexStudies++;
 
             e.preventDefault(); // évite qu'un # apparaisse dans l'URL
             return false;
@@ -40,6 +41,7 @@
 
         if (indexStudies == 0) {
             addStudy($containerStudies, indexStudies);
+            indexStudies++;
         } else {
             // S'il existe déjà des catégories, on ajoute un lien de suppression pour chacune d'entre elles
             $containerStudies.children('div').each(function() {
@@ -51,41 +53,25 @@
             // Dans le contenu de l'attribut « data-prototype », on remplace :
             // - le texte "__name__label__" qu'il contient par le label du champ
             // - le texte "__name__" qu'il contient par le numéro du champ
-            var template = $containerStudies.attr('data-prototype')
-                    .replace(/__name__label__/g, 'Study n°' + (indexStudies+1))
-                    .replace(/__name__/g,        indexStudies)
-            ;
+            var template = $containerStudies.attr('data-prototype');
 
             // On crée un objet jquery qui contient ce template
             var $prototype = $(template);
 
+            $prototype.find('h4').append(indexStudies + 1);
+
             // On ajoute le prototype modifié à la fin de la balise <div>
             $containerStudies.append($prototype);
 
-            $("#study" + (indexStudies+1)).find('.remove').click( function () {
-                alert('in');
-            });
-            console.log($("#study" + (indexStudies+1)).find('.remove'));
+            // Le bloc ajouté
+            var $deleteLink = $prototype.find('.remove');
 
-
-            indexStudies++;
-        }
-
-        /*
-        function addDeleteLink($prototype) {
-            // Création du lien
-            var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
-
-            // Ajout du lien
-            $prototype.append($deleteLink);
-
-            // Ajout du listener sur le clic du lien pour effectivement supprimer la catégorie
-            $deleteLink.click(function(e) {
+            $deleteLink.click( function (e) {
                 $prototype.remove();
 
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
                 return false;
             });
-        }*/
+        }
     });
 </script>

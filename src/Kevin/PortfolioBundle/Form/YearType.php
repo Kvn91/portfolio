@@ -15,7 +15,7 @@ class YearType extends AbstractType
     {
         $transformer = new YearSelectTransformer();
         $builder
-            ->add('year', ChoiceType::class, array('choices' => array_combine($options['choices'], $options['choices'])))
+            ->add('year', ChoiceType::class, array('label' => false, 'choices' => array_combine($options['choices'], $options['choices'])))
             ->addModelTransformer($transformer)
         ;
     }

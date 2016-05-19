@@ -10,8 +10,8 @@
                 <ul>
                     {% for rows in form %}
                         {% set fieldNum = 1 %}
-                        <li id="{{ form.vars.studyname ~ fieldNum }}">
-                            <h4>{{ form_label(rows) }}</h4>
+                        <li id="{{ studyname ~ fieldNum }}">
+                            <h4>{{ studyname|capitalize ~ ' n°' }}</h4>
                             {% for row in rows %}
                                 <div class="field{{ fieldNum }}">
                                     {{ form_label(row) }}
@@ -42,6 +42,7 @@
     {% spaceless %}
         {% set fieldNum = 1 %}
         <li id="{{ studyname ~ fieldNum }}">
+            <h4>{{ studyname|capitalize ~ ' n°' }}</h4>
             {% for row in prototype %}
                 <div class="field{{ fieldNum }}">
                     {{ form_label(row) }}

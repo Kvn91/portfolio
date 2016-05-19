@@ -20,7 +20,7 @@ class MonthType extends AbstractType
 
         $transformer = new MonthSelectTransformer();
         $builder
-            ->add('month', ChoiceType::class, array('choices' => $monthsList))
+            ->add('month', ChoiceType::class, array('label' => false, 'choices' => $monthsList))
             ->addModelTransformer($transformer);
         ;
     }
