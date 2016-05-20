@@ -10,8 +10,8 @@
                 <ul>
                     {% for rows in form %}
                         {% set fieldNum = 1 %}
-                        <li id="{{ studyname ~ fieldNum }}">
-                            <h4>{{ studyname|capitalize ~ ' n°' }}</h4>
+                        <li id="{{ fieldname ~ fieldNum }}">
+                            <h4>{{ fieldname|capitalize ~ ' n°' }}</h4>
                             {% for row in rows %}
                                 <div class="field{{ fieldNum }}">
                                     {{ form_label(row) }}
@@ -19,7 +19,7 @@
                                 </div>
                                 {% set fieldNum = fieldNum + 1 %}
                             {% endfor %}
-                            <a class="remove btn btn-danger" title="Remove" href="#">
+                            <a class="remove-{{ fieldname }} btn btn-danger" title="Remove" href="#">
                                 <span>Delete</span>
                             </a>
                             <div class="clear"></div>
@@ -29,7 +29,7 @@
                 {{ form_rest(form) }}
             </div>
             <div class="clear"></div>
-            <a id="add-study" class="btn btn-default" title="Ajouter une étude" href="#">
+            <a id="add-{{ fieldname }}" class="btn btn-default" title="Add" href="#">
                 <div style="display: none;"></div>
                 <span>Add</span>
             </a>
@@ -41,8 +41,8 @@
 {% block collection_item_widget %}
     {% spaceless %}
         {% set fieldNum = 1 %}
-        <li id="{{ studyname ~ fieldNum }}">
-            <h4>{{ studyname|capitalize ~ ' n°' }}</h4>
+        <li id="{{ fieldname ~ fieldNum }}">
+            <h4>{{ fieldname|capitalize ~ ' n°' }}</h4>
             {% for row in prototype %}
                 <div class="field{{ fieldNum }}">
                     {{ form_label(row) }}
@@ -50,7 +50,7 @@
                 </div>
                 {% set fieldNum = fieldNum + 1 %}
             {% endfor %}
-            <a class="remove btn btn-danger" title="Remove" href="#">
+            <a class="remove-{{ fieldname }} btn btn-danger" title="Remove" href="#">
                 <span>Delete</span>
             </a>
             <div class="clear"></div>

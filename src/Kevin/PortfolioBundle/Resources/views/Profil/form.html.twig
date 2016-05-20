@@ -1,7 +1,8 @@
-{% form_theme form 'form/fields.html.twig' %}
+{% form_theme form 'form/collectionWidget.html.twig' %}
 
 <h3>Formulaire de profil</h3>
 <div class="well">
+
     {{ form_start(form) }}
     {{ form_row(form.name) }}
     {{ form_row(form.firstname) }}
@@ -15,7 +16,7 @@
     {{ form_row(form.phoneNumber) }}
     {{ form_row(form.image) }}
 
-    {{ form_widget(form.studies, { 'studyname': form.vars.studyname}) }}
+    {{ form_widget(form.studies, { 'fieldname': form.vars.studyname}) }}
     {#{{ form_row(form.experiences) }}#}
     {#<a href="#" id="add-experience" class="btn btn-default">Ajouter une expérience</a><br/><br/>#}
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
@@ -33,7 +34,6 @@
         // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
         $('#add-study').click(function(e) {
             addStudy($containerStudies, indexStudies);
-            indexStudies++;
 
             e.preventDefault(); // évite qu'un # apparaisse dans l'URL
             return false;
@@ -41,7 +41,6 @@
 
         if (indexStudies == 0) {
             addStudy($containerStudies, indexStudies);
-            indexStudies++;
         } else {
             // S'il existe déjà des catégories, on ajoute un lien de suppression pour chacune d'entre elles
             $containerStudies.children('div').each(function() {
@@ -49,11 +48,12 @@
             });
         }
 
-        function addStudy($containerStudies, indexStudies) {
+        function addStudy($containerStudies) {
             // Dans le contenu de l'attribut « data-prototype », on remplace :
             // - le texte "__name__label__" qu'il contient par le label du champ
             // - le texte "__name__" qu'il contient par le numéro du champ
-            var template = $containerStudies.attr('data-prototype');
+            var template = $containerStudies.attr('data-prototype')
+                    .replace(/__name__/g,        indexStudies);
 
             // On crée un objet jquery qui contient ce template
             var $prototype = $(template);
@@ -61,10 +61,10 @@
             $prototype.find('h4').append(indexStudies + 1);
 
             // On ajoute le prototype modifié à la fin de la balise <div>
-            $containerStudies.append($prototype);
+            $containerStudies.find('ul').append($prototype);
 
             // Le bloc ajouté
-            var $deleteLink = $prototype.find('.remove');
+            var $deleteLink = $prototype.find('.remove-study');
 
             $deleteLink.click( function (e) {
                 $prototype.remove();
@@ -72,6 +72,8 @@
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
                 return false;
             });
+
+            indexStudies++;
         }
     });
 </script>

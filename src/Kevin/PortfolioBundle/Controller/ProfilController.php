@@ -26,6 +26,8 @@ class ProfilController extends Controller
         $study->setEstablishment('qzdfqd');
         $study->setTitle('ezq');
 
+//        $profil->addStudy($study);
+
         $form = $this->createForm(ProfilType::class, $profil);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
