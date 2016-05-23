@@ -46,12 +46,13 @@ class ProfilType extends AbstractType
                    'by_reference' => false,
                )
            )
-//           ->add('experiences',      CollectionType::class, array(
-//                   'entry_type'   => ExperienceType::class,
-//                   'allow_add'    => true,
-//                   'allow_delete' => true,
-//               )
-//           )
+           ->add('experiences',      CollectionType::class, array(
+                   'entry_type'   => ExperienceType::class,
+                   'allow_add'    => true,
+                   'allow_delete' => true,
+                   'by_reference' => false,
+               )
+           )
            ->add('save',         SubmitType::class)
        ;
    }
@@ -68,6 +69,7 @@ class ProfilType extends AbstractType
 
     public function buildView(FormView $view, FormInterface $form, array $options)
     {
-        $view->vars['studyname'] = 'study';
+        $view->vars['studyname']      = 'study';
+        $view->vars['experiencename'] = 'experience';
     }
 }

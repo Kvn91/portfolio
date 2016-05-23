@@ -17,8 +17,9 @@
     {{ form_row(form.image) }}
 
     {{ form_widget(form.studies, { 'fieldname': form.vars.studyname}) }}
-    {#{{ form_row(form.experiences) }}#}
-    {#<a href="#" id="add-experience" class="btn btn-default">Ajouter une expérience</a><br/><br/>#}
+
+    {{ form_widget(form.experiences, { 'fieldname': form.vars.experiencename}) }}
+
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
     {{ form_end(form) }}
 </div>
@@ -26,46 +27,51 @@
 <script type="text/javascript">
     $(document).ready(function() {
         // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
-        var $containerStudies = $('div#profil_studies');
+        var $containerStudies     = $('div#profil_studies');
+        var $containerExperiences = $('div#profil_experiences');
 
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-        var indexStudies = $containerStudies.find(':input').length;
+        var indexStudies     = $containerStudies.find(':input').length;
+        var indexExperiences = $containerExperiences.find(':input').length;
 
         // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
         $('#add-study').click(function(e) {
-            addStudy($containerStudies, indexStudies);
+            addStudy($containerStudies);
+
+            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+            return false;
+        });
+        $('#add-experience').click(function(e) {
+            addExperience($containerExperiences);
 
             e.preventDefault(); // évite qu'un # apparaisse dans l'URL
             return false;
         });
 
+        // S'il n'y a aucune entrée dans la collection on ajoute un champs vide, sinon
         if (indexStudies == 0) {
-            addStudy($containerStudies, indexStudies);
-        } else {
-            // S'il existe déjà des catégories, on ajoute un lien de suppression pour chacune d'entre elles
-            $containerStudies.children('div').each(function() {
-                addDeleteLink($(this));
-            });
+            addStudy($containerStudies);
+        }
+        if (indexExperiences == 0) {
+            addExperience($containerExperiences);
         }
 
         function addStudy($containerStudies) {
-            // Dans le contenu de l'attribut « data-prototype », on remplace :
-            // - le texte "__name__label__" qu'il contient par le label du champ
-            // - le texte "__name__" qu'il contient par le numéro du champ
+            // On récupère le prototype
             var template = $containerStudies.attr('data-prototype')
                     .replace(/__name__/g,        indexStudies);
 
             // On crée un objet jquery qui contient ce template
             var $prototype = $(template);
 
+            // On affiche le numéro de l'entrée
             $prototype.find('h4').append(indexStudies + 1);
 
-            // On ajoute le prototype modifié à la fin de la balise <div>
+            // On ajoute le prototype modifié dans la balise <ul>
             $containerStudies.find('ul').append($prototype);
 
-            // Le bloc ajouté
+            // On ajoute l'event sur les liens delete
             var $deleteLink = $prototype.find('.remove-study');
-
             $deleteLink.click( function (e) {
                 $prototype.remove();
 
@@ -74,6 +80,32 @@
             });
 
             indexStudies++;
+        }
+
+        function addExperience($containerExperiences) {
+            // On récupère le prototype
+            var template = $containerExperiences.attr('data-prototype')
+                    .replace(/__name__/g,        indexStudies);
+
+            // On crée un objet jquery qui contient ce template
+            var $prototype = $(template);
+
+            // On affiche le numéro de l'entrée
+            $prototype.find('h4').append(indexExperiences + 1);
+
+            // On ajoute le prototype modifié dans la balise <ul>
+            $containerExperiences.find('ul').append($prototype);
+
+            // On ajoute l'event sur les liens delete
+            var $deleteLink = $prototype.find('.remove-experience');
+            $deleteLink.click( function (e) {
+                $prototype.remove();
+
+                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+                return false;
+            });
+
+            indexExperiences++;
         }
     });
 </script>

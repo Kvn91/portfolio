@@ -38,11 +38,6 @@ class StudyType extends AbstractType
         ));
     }
 
-    public function buildView(FormView $view, FormInterface $form, array $options)
-    {
-        $view->vars['test'] = 'Study';
-    }
-
     public function getName()
     {
         return 'study';
