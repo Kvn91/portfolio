@@ -12,13 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
 class ProfilSkill
 {
     /**
-     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="profilSkills")
+     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="profilSkills", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $profil;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Skill")
+     * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Skill", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $skill;
@@ -33,14 +33,7 @@ class ProfilSkill
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @var string
+     * @var int
      *
      * @ORM\Column(name="level", type="integer")
      */
@@ -57,27 +50,74 @@ class ProfilSkill
     }
 
     /**
-     * Set name
+     * Set level
      *
-     * @param string $name
+     * @param integer $level
      *
-     * @return Skill
+     * @return ProfilSkill
      */
-    public function setName($name)
+    public function setLevel($level)
     {
-        $this->name = $name;
+        $this->level = $level;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get level
      *
-     * @return string
+     * @return integer
      */
-    public function getName()
+    public function getLevel()
     {
-        return $this->name;
+        return $this->level;
+    }
+
+    /**
+     * Set profil
+     *
+     * @param \Kevin\PortfolioBundle\Entity\Profil $profil
+     *
+     * @return ProfilSkill
+     */
+    public function setProfil(\Kevin\PortfolioBundle\Entity\Profil $profil)
+    {
+        $this->profil = $profil;
+
+        return $this;
+    }
+
+    /**
+     * Get profil
+     *
+     * @return \Kevin\PortfolioBundle\Entity\Profil
+     */
+    public function getProfil()
+    {
+        return $this->profil;
+    }
+
+    /**
+     * Set skill
+     *
+     * @param \Kevin\PortfolioBundle\Entity\Skill $skill
+     *
+     * @return ProfilSkill
+     */
+    public function setSkill(\Kevin\PortfolioBundle\Entity\Skill $skill)
+    {
+        $this->skill = $skill;
+
+        return $this;
+    }
+
+    /**
+     * Get skill
+     *
+     * @return \Kevin\PortfolioBundle\Entity\Skill
+     */
+    public function getSkill()
+    {
+        return $this->skill;
     }
 }
-

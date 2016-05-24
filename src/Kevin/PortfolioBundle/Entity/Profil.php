@@ -35,7 +35,7 @@ class Profil
     private $experiences;
     
     /**
-     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\ProfilSkill", mappedBy="profil")
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\ProfilSkill", mappedBy="profil", cascade="all")
      */
     private $profilSkills;
 

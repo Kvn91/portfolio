@@ -13,13 +13,13 @@ class ProfilSkill
 {
     /**
      * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="profilSkills", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="profil_id", referencedColumnName="id")
      */
     private $profil;
 
     /**
      * @ORM\ManyToOne(targetEntity="Kevin\PortfolioBundle\Entity\Skill", cascade={"persist"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="skill_id", referencedColumnName="id")
      */
     private $skill;
 
@@ -33,14 +33,7 @@ class ProfilSkill
     private $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @var string
+     * @var int
      *
      * @ORM\Column(name="level", type="integer")
      */
@@ -54,30 +47,6 @@ class ProfilSkill
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Skill
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
     }
 
     /**

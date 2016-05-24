@@ -20,6 +20,8 @@
 
     {{ form_widget(form.experiences, { 'fieldname': form.vars.experiencename}) }}
 
+    {{ form_row(form.profilSkills) }}
+
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
     {{ form_end(form) }}
 </div>
@@ -78,14 +80,13 @@
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
                 return false;
             });
-
             indexStudies++;
         }
 
         function addExperience($containerExperiences) {
             // On récupère le prototype
             var template = $containerExperiences.attr('data-prototype')
-                    .replace(/__name__/g,        indexStudies);
+                    .replace(/__name__/g,        indexExperiences);
 
             // On crée un objet jquery qui contient ce template
             var $prototype = $(template);
@@ -104,7 +105,6 @@
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
                 return false;
             });
-
             indexExperiences++;
         }
     });

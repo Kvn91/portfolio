@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
@@ -51,6 +52,12 @@ class ProfilType extends AbstractType
                    'allow_add'    => true,
                    'allow_delete' => true,
                    'by_reference' => false,
+               )
+           )
+           ->add('profilSkills', EntityType::class, array(
+                   'class'        => 'KevinPortfolioBundle:ProfilSkill',
+                   'choice_label' => 'skills',
+                   'multiple'     => true,
                )
            )
            ->add('save',         SubmitType::class)

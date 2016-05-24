@@ -8,22 +8,22 @@
                 {{ form_errors(form) }}
                 <h3>{{ form_label(form) }}</h3>
                 <ul>
+                    {% set fieldNum = 1 %}
                     {% for rows in form %}
-                        {% set fieldNum = 1 %}
                         <li id="{{ fieldname ~ fieldNum }}">
-                            <h4>{{ fieldname|capitalize ~ ' n°' }}</h4>
+                            <h4>{{ fieldname|capitalize ~ ' n°' ~ fieldNum}}</h4>
                             {% for row in rows %}
                                 <div class="field{{ fieldNum }}">
                                     {{ form_label(row) }}
                                     {{ form_widget(row, { 'attr': { 'class': 'test' }}) }}
                                 </div>
-                                {% set fieldNum = fieldNum + 1 %}
                             {% endfor %}
                             <a class="remove-{{ fieldname }} btn btn-danger" title="Remove" href="#">
                                 <span>Delete</span>
                             </a>
                             <div class="clear"></div>
                         </li>
+                        {% set fieldNum = fieldNum + 1 %}
                     {% endfor %}
                 </ul>
                 {{ form_rest(form) }}

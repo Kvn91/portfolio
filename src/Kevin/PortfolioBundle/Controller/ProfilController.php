@@ -18,15 +18,6 @@ class ProfilController extends Controller
     public function addAction(Request $request)
     {
         $profil = new Profil();
-        $study = new Study();
-        $study->setBeginMonth(2);
-        $study->setBeginYear(2014);
-        $study->setEndMonth(4);
-        $study->setEndYear(2017);
-        $study->setEstablishment('qzdfqd');
-        $study->setTitle('ezq');
-
-//        $profil->addStudy($study);
 
         $form = $this->createForm(ProfilType::class, $profil);
 
