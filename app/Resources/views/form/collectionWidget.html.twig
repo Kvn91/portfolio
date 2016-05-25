@@ -1,6 +1,9 @@
 {% block collection_widget %}
     {% spaceless %}
         <div class="collection">
+            {% if fieldname is not defined %}
+                {% set fieldname = form.vars.name %}
+            {% endif %}
             {% if prototype is defined %}
                 {% set attr = attr|merge({'data-prototype': block('collection_item_widget') }) %}
             {% endif %}
@@ -40,6 +43,9 @@
 
 {% block collection_item_widget %}
     {% spaceless %}
+        {% if fieldname is not defined %}
+            {% set fieldname = form.vars.name %}
+        {% endif %}
         {% set fieldNum = 1 %}
         <li id="{{ fieldname ~ fieldNum }}">
             <h4>{{ fieldname|capitalize ~ ' n°' }}</h4>

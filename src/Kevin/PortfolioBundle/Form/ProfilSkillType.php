@@ -2,7 +2,9 @@
 
 namespace Kevin\PortfolioBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,8 +16,17 @@ class ProfilSkillType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $array = range(1, 5);
         $builder
-            ->add('level')
+            ->add('skills', EntityType::class, array(
+                    'class'        => 'KevinPortfolioBundle:Skill',
+                    'choice_label' => 'name',
+                )
+            )
+            ->add('level', ChoiceType::class, array(
+                    'choices' => array_combine($array, $array)
+                )
+            )
         ;
     }
     
@@ -25,7 +36,12 @@ class ProfilSkillType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Kevin\PortfolioBundle\Entity\ProfilSkill'
+            'data_class' => null
         ));
+    }
+
+    public function getName()
+    {
+        return 'skill';
     }
 }

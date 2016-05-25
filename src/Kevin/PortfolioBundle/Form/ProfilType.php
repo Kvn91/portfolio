@@ -54,10 +54,11 @@ class ProfilType extends AbstractType
                    'by_reference' => false,
                )
            )
-           ->add('profilSkills', EntityType::class, array(
-                   'class'        => 'KevinPortfolioBundle:ProfilSkill',
-                   'choice_label' => 'skills',
-                   'multiple'     => true,
+           ->add('profilSkills', CollectionType::class, array(
+                   'entry_type' => ProfilSkillType::class,
+                   'allow_add'    => true,
+                   'allow_delete' => true,
+                   'by_reference' => false,
                )
            )
            ->add('save',         SubmitType::class)
@@ -78,5 +79,6 @@ class ProfilType extends AbstractType
     {
         $view->vars['studyname']      = 'study';
         $view->vars['experiencename'] = 'experience';
+        $view->vars['skillname'] = 'skill';
     }
 }
