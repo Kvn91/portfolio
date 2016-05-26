@@ -23,7 +23,6 @@ class ProfilController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
             // Traitement du formulaire
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($profil);
             $em->flush();
@@ -44,5 +43,12 @@ class ProfilController extends Controller
     public function deleteAction()
     {
         return $this->render('KevinPortfolioBundle:Profil:delete.html.twig');
+    }
+
+    public function testAction()
+    {
+        $date1 = new \DateTime('13:00:05');
+
+        var_dump($date1->format("y-m-d"));exit;
     }
 }

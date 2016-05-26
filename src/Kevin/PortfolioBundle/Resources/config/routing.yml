@@ -21,3 +21,8 @@ kevin_portfolio_delete:
         _controller: KevinPortfolioBundle:Profil:delete
     requirements:
         id: \d+
+
+kevin_portfolio_test:
+    path:     /test
+    defaults:
+        _controller: KevinPortfolioBundle:Profil:test

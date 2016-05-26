@@ -1,4 +1,3 @@
 services:
-#    kevin_portfolio.example:
-#        class: Kevin\PortfolioBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]
+    kevin_portfolio.strings:
+        class: Kevin\PortfolioBundle\Utils\Strings
