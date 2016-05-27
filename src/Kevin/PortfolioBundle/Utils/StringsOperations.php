@@ -2,7 +2,7 @@
 
 namespace Kevin\PortfolioBundle\Utils;
 
-class Strings
+class StringsOperations
 {
     /*
      * Met en majuscule tous les mots d'une chaine, 

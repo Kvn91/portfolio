@@ -18,7 +18,7 @@ class ProfilSkillType extends AbstractType
     {
         $array = range(1, 5);
         $builder
-            ->add('skills', EntityType::class, array(
+            ->add('skill', EntityType::class, array(
                     'class'        => 'KevinPortfolioBundle:Skill',
                     'choice_label' => 'name',
                 )
