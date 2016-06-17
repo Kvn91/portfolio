@@ -26,3 +26,27 @@ kevin_portfolio_test:
     path:     /test
     defaults:
         _controller: KevinPortfolioBundle:Profil:test
+
+kevin_portfolio_skill_index:
+    path:     /skills
+    defaults:
+        _controller: KevinPortfolioBundle:Skill:index
+
+kevin_portfolio_skill_add:
+    path:     /skill/add
+    defaults:
+        _controller: KevinPortfolioBundle:Skill:add
+
+kevin_portfolio_skill_edit:
+    path:     /skill/edit/{id}
+    defaults:
+        _controller: KevinPortfolioBundle:Skill:edit
+    requirements:
+        id: \d+
+
+kevin_portfolio_skill_delete:
+    path:     /skill/delete/{id}
+    defaults:
+        _controller: KevinPortfolioBundle:Skill:delete
+    requirements:
+        id: \d+

@@ -1,3 +1,11 @@
 services:
-    kevin_portfolio.strings:
-        class: Kevin\PortfolioBundle\Utils\Strings
+    kevin_portfolio.utils.stringsoperations:
+        class: Kevin\PortfolioBundle\Utils\StringsOperations
+
+    kevin_portfolio.doctrine_listener.profil:
+        class: Kevin\PortfolioBundle\DoctrineListener\ProfilListener
+        arguments:
+            - "@kevin_portfolio.utils.stringsoperations"
+        tags:
+            - { name: doctrine.event_listener, event: prePersist }
+            - { name: doctrine.event_listener, event: preUpdate }
