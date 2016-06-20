@@ -6,12 +6,30 @@ use Kevin\PortfolioBundle\Entity\Skill;
 use Kevin\PortfolioBundle\Form\SkillType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class SkillController extends Controller
 {
-    public function indexAction()
+    public function indexAction($page)
     {
-        return $this->render('KevinPortfolioBundle:Skill:index.html.twig');
+        if ($page < 1){
+            throw new NotFoundHttpException('Page ' . $page . ' inexistante.');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $skillsList = $em->getRepository('KevinPortfolioBundle:Skill')->getSkills($page);
+
+        $nbPages = ceil(count($skillsList) / Skill::NB_SKILLS_PER_PAGE);
+
+        if ($page > $nbPages){
+            throw new NotFoundHttpException('Page ' . $page . ' inexistante.');
+        }
+
+        return $this->render('KevinPortfolioBundle:Skill:index.html.twig', array(
+            'skillsList'  => $skillsList,
+            'page'    => $page,
+            'nbPages' => $nbPages
+        ));
     }
 
     public function addAction(Request $request)

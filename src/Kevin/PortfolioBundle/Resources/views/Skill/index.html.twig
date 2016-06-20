@@ -7,5 +7,11 @@
         {% endfor %}
     </div>
 
-    Hello World!
+    <h2>Liste des skills</h2>
+
+    <ul>
+        {% for skill in skillsList %}
+            <li>{{ skill.name }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}

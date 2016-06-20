@@ -9,6 +9,7 @@ use Kevin\PortfolioBundle\Entity\Study;
 use Kevin\PortfolioBundle\Form\ProfilType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProfilController extends Controller
 {
@@ -80,9 +81,21 @@ class ProfilController extends Controller
         return $this->render('KevinPortfolioBundle:Profil:add.html.twig', ['form' => $form->createView()]);
     }
 
-    public function editAction()
+    public function editAction($id)
     {
-        return $this->render('KevinPortfolioBundle:Profil:edit.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $profil = $em->getRepository('KevinPortfolioBundle:Profil')->find($id);
+
+        if (null === $profil){
+            throw new NotFoundHttpException('Ce profil n\'existe pas');
+        }
+
+        $form = $this->createForm(ProfilType::class, $profil);
+
+        return $this->render('KevinPortfolioBundle:Profil:edit.html.twig', array(
+            'form' => $form->createView()
+        ));
     }
 
     public function deleteAction()

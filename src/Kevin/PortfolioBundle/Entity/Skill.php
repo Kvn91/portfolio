@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Skill
 {
+
+    const NB_SKILLS_PER_PAGE = 20;
+
     /**
      * @var int
      *
