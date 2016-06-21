@@ -5,7 +5,11 @@
 {% endblock %}
 
 {% block kevinportfolio_body %}
-
+    <div>
+        {% for message in app.session.flashbag.get('notice') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
     <h2>Modifier votre profil</h2>
 
     {{ include("KevinPortfolioBundle:Profil:form.html.twig") }}

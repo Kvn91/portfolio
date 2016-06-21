@@ -142,5 +142,24 @@
             });
             indexSkills++;
         }
+
+        /*
+        Ajouter la suppression des blocs aux boutons supprimer
+         */
+        $('.remove-study').click(function (e) {
+            $(this).parent('li').remove();
+            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+        });
+
+        $('.remove-experience').click(function (e) {
+            $(this).parent('li').remove();
+            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+        });
+
+        $('.remove-skill').click(function (e) {
+            $(this).parent('li').remove();
+            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
+        });
+
     });
 </script>

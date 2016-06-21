@@ -15,7 +15,9 @@ class StringsOperations
             '\'',
         );
 
-        $string =ucwords(strtolower($string));
+        var_dump($string);
+        $string =ucwords(mb_strtolower($string));
+        var_dump($string);
 
         foreach ($delimiters as $delimiter) {
             if (strpos($string, $delimiter)!==false) {

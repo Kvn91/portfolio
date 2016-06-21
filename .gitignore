@@ -15,3 +15,7 @@
 /vendor/
 /web/bundles/
 /.idea/*
+<<<<<<< HEAD
+=======
+!.idea/*
+>>>>>>> 61c9465dd1a179d1fe288973f53755a7df0a47e8

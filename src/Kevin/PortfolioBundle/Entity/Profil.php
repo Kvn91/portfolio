@@ -326,8 +326,8 @@ class Profil
      */
     public function __construct()
     {
-        $this->experiences = new ArrayCollection();
-        $this->studies = new ArrayCollection();
+        $this->experiences  = new ArrayCollection();
+        $this->studies      = new ArrayCollection();
         $this->profilSkills = new ArrayCollection();
     }
 
@@ -409,9 +409,9 @@ class Profil
     /**
      * Remove study
      *
-     * @param \Kevin\PortfolioBundle\Entity\Study $study
+     * @param Study $study
      */
-    public function removeStudy(\Kevin\PortfolioBundle\Entity\Study $study)
+    public function removeStudy(Study $study)
     {
         $this->studies->removeElement($study);
     }

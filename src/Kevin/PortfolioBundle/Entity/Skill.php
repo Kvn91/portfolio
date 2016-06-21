@@ -3,15 +3,20 @@
 namespace Kevin\PortfolioBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * Skill
  *
  * @ORM\Table(name="skill")
  * @ORM\Entity(repositoryClass="Kevin\PortfolioBundle\Repository\SkillRepository")
+ * @UniqueEntity(fields={"name"}, message="Ce skill existe déjà")
  */
 class Skill
 {
+
+    const NB_SKILLS_PER_PAGE = 20;
+
     /**
      * @var int
      *
@@ -24,7 +29,7 @@ class Skill
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="name", type="string", length=255, unique=true)
      */
     private $name;
 

@@ -53,7 +53,7 @@ class ProfilController extends Controller
 
         $birthdayDate = new \DateTime('01-12-1996');
         $profil
-            ->setFirstname('jean-kévin')
+            ->setFirstname('jean-kevin')
             ->setTitle('Dev web')
             ->setAddress('33 rue du Maréchal')
             ->setBirthdayDate($birthdayDate)
@@ -75,13 +75,15 @@ class ProfilController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Profil enregistré');
 
-            return $this->redirectToRoute('kevin_portfolio_homepage');
+            return $this->redirectToRoute('kevin_portfolio_edit', array(
+                'id' => $profil->getId()
+            ));
         }
 
         return $this->render('KevinPortfolioBundle:Profil:add.html.twig', ['form' => $form->createView()]);
     }
 
-    public function editAction($id)
+    public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -92,6 +94,18 @@ class ProfilController extends Controller
         }
 
         $form = $this->createForm(ProfilType::class, $profil);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+
+            $em->persist($profil);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Profil modifié');
+
+            return $this->redirectToRoute('kevin_portfolio_edit', array(
+                'id' => $id
+            ));
+        }
 
         return $this->render('KevinPortfolioBundle:Profil:edit.html.twig', array(
             'form' => $form->createView()

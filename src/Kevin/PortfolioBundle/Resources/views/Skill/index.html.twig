@@ -7,5 +7,24 @@
         {% endfor %}
     </div>
 
-    Hello World!
+    <h2>Liste des skills</h2>
+
+    <ul>
+        {% for skill in skillsList %}
+            <li>
+                {{ skill.name }}
+                <a href="{{ path('kevin_portfolio_skill_edit', {'id': skill.id}) }}"  class="btn btn-default">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+                <a href="{{ path('kevin_portfolio_skill_delete', {'id': skill.id}) }}"  class="btn btn-default">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('kevin_portfolio_skill_add') }}"  class="btn btn-default">
+        <i class="glyphicon glyphicon-plus"></i>
+        Ajouter un skill
+    </a>
 {% endblock %}

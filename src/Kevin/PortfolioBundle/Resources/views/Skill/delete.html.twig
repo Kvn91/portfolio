@@ -1,0 +1,26 @@
+{% extends "KevinPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    Supprimer un skill - {{ parent() }}
+{% endblock %}
+
+{% block kevinportfolio_body %}
+
+    <h2>Supprimer un skill</h2>
+
+    <p>
+        Etes-vous certain de vouloir supprimer le skill "{{ skill.name }}" ?
+    </p>
+
+    {# On met l'id du skill dans la route de l'action du formulaire #}
+    <form action="{{ path('kevin_portfolio_skill_delete', {'id': skill.id}) }}" method="post">
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_end(form) }}
+    <br/>
+    <p>
+        <a href="{{ path('kevin_portfolio_skill_index') }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour à la liste de skills
+        </a>
+    </p>
+{% endblock %}

@@ -2,7 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3f446e0-af41-4ba9-b724-b5b1cdecadc9" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Controller/SkillController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Skill/add.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Skill/form.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Skill/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/config/routing.yml" />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+=======
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Profil/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Controller/ProfilController.php" afterPath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Controller/ProfilController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Profil/add.html.twig" afterPath="$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Profil/add.html.twig" />
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
+>>>>>>> 61c9465dd1a179d1fe288973f53755a7df0a47e8
     </list>
     <ignored path="portfolio.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,8 +47,18 @@
       <file leaf-file-name="ProfilController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Controller/ProfilController.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="900">
+              <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+=======
+            <state relative-caret-position="68">
+              <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+=======
             <state relative-caret-position="561">
               <caret line="97" column="11" selection-start-line="97" selection-start-column="11" selection-end-line="97" selection-end-column="11" />
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
               <folding />
             </state>
           </provider>
@@ -47,8 +77,66 @@
       <file leaf-file-name="ProfilSkillType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Form/ProfilSkillType.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+            <state relative-caret-position="885">
+              <caret line="73" column="65" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="65" />
+              <folding>
+                <element signature="e#46#83#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfilSkillType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Form/ProfilSkillType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="38" column="69" selection-start-line="38" selection-start-column="69" selection-end-line="38" selection-end-column="69" />
+              <folding>
+                <element signature="e#46#95#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProfilController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Controller/ProfilController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding>
+                <element signature="e#52#92#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Profil.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Entity/Profil.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7785">
+              <caret line="519" column="5" selection-start-line="519" selection-start-column="5" selection-end-line="519" selection-end-column="5" />
+              <folding>
+                <element signature="e#48#96#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Strings.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Utils/Strings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+=======
+            <state relative-caret-position="855">
+              <caret line="73" column="65" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="65" />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+=======
             <state relative-caret-position="459">
               <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
               <folding />
             </state>
           </provider>
@@ -57,13 +145,36 @@
       <file leaf-file-name="edit.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Profil/edit.html.twig">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="15">
+              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="27" />
+=======
             <state relative-caret-position="204">
               <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Skill/form.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="405">
+              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+=======
+            <state relative-caret-position="34">
+              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+=======
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -141,10 +252,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1696" />
-    <option name="height" value="1026" />
+    <option name="x" value="-1679" />
+    <option name="y" value="-119" />
+    <option name="width" value="1679" />
+    <option name="height" value="1023" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -191,6 +302,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+<<<<<<< HEAD
+=======
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="portfolio" />
@@ -399,6 +512,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
         </subPane>
       </pane>
     </panes>
@@ -481,27 +595,52 @@
       <workItem from="1463747306064" duration="9165000" />
       <workItem from="1464084057651" duration="10320000" />
       <workItem from="1464163298599" duration="20929000" />
+<<<<<<< HEAD
+      <workItem from="1464248163780" duration="7949000" />
+      <workItem from="1464329679064" duration="15000" />
+      <workItem from="1466204147295" duration="67000" />
+=======
       <workItem from="1464248163780" duration="8026000" />
       <workItem from="1464337727955" duration="10455000" />
       <workItem from="1466151341830" duration="8148000" />
+<<<<<<< HEAD
       <workItem from="1466416380239" duration="6911000" />
       <workItem from="1466500020120" duration="113000" />
+=======
+<<<<<<< HEAD
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+=======
+      <workItem from="1466416380239" duration="6868000" />
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
+>>>>>>> 61c9465dd1a179d1fe288973f53755a7df0a47e8
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="186216000" />
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="160594000" />
+=======
+    <option name="totallyTimeSpent" value="179192000" />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+=======
+    <option name="totallyTimeSpent" value="186060000" />
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
+>>>>>>> 61c9465dd1a179d1fe288973f53755a7df0a47e8
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
+    <frame x="-1679" y="-119" width="1679" height="1023" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29880953" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22751638" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2442348" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19058964" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -545,6 +684,23 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/BaseType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/BirthdayType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
     <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/CheckboxType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -745,7 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -786,7 +941,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Profil/form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="900">
+=======
         <state relative-caret-position="829">
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
           <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
         </state>
       </provider>
@@ -802,14 +961,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Entity/Profil.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="885">
+          <caret line="73" column="65" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="65" />
+=======
         <state relative-caret-position="270">
           <caret line="387" column="7" selection-start-line="387" selection-start-column="7" selection-end-line="387" selection-end-column="7" />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
           <folding>
             <element signature="e#48#96#0#PHP" expanded="true" />
           </folding>
@@ -818,6 +981,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="510">
+          <caret line="38" column="69" selection-start-line="38" selection-start-column="69" selection-end-line="38" selection-end-column="69" />
+=======
         <state relative-caret-position="170">
           <caret line="10" column="62" selection-start-line="10" selection-start-column="62" selection-end-line="10" selection-end-column="62" />
         </state>
@@ -827,41 +994,107 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="28" column="45" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+<<<<<<< HEAD
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+          <folding>
+            <element signature="e#58#115#0#PHP" expanded="false" />
+          </folding>
+=======
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Skill/index.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="476">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+          <folding />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+=======
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Skill/form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="405">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+=======
         <state relative-caret-position="34">
           <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+<<<<<<< HEAD
+=======
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+          <folding />
+>>>>>>> 61c9465dd1a179d1fe288973f53755a7df0a47e8
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Form/SkillType.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="165">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+=======
         <state relative-caret-position="578">
           <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+<<<<<<< HEAD
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+          <folding>
+            <element signature="e#46#86#0#PHP" expanded="true" />
+          </folding>
+=======
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Resources/views/Skill/add.html.twig">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="7785">
+          <caret line="519" column="5" selection-start-line="519" selection-start-column="5" selection-end-line="519" selection-end-column="5" />
+          <folding>
+            <element signature="e#48#96#0#PHP" expanded="true" />
+          </folding>
+=======
+        <state relative-caret-position="719">
+          <caret line="47" column="20" selection-start-line="47" selection-start-column="20" selection-end-line="47" selection-end-column="20" />
+=======
         <state relative-caret-position="204">
           <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+<<<<<<< HEAD
+=======
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
+          <folding />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+>>>>>>> 61c9465dd1a179d1fe288973f53755a7df0a47e8
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Form/ProfilType.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state relative-caret-position="15">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="27" />
+=======
+        <state relative-caret-position="855">
+=======
         <state relative-caret-position="829">
+>>>>>>> 06c728e75fc464a9c185aff1c80e6f1026518903
           <caret line="73" column="65" selection-start-line="73" selection-start-column="28" selection-end-line="73" selection-end-column="65" />
+<<<<<<< HEAD
+=======
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+          <folding />
+>>>>>>> 61c9465dd1a179d1fe288973f53755a7df0a47e8
         </state>
       </provider>
     </entry>
@@ -889,8 +1122,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Kevin/PortfolioBundle/Form/ProfilSkillType.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="459">
           <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="210">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+=======
+        <state relative-caret-position="204">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+>>>>>>> 7e661849eaf66cdae3bf2fa61c3e244343df3f86
+>>>>>>> 61c9465dd1a179d1fe288973f53755a7df0a47e8
           <folding />
         </state>
       </provider>
