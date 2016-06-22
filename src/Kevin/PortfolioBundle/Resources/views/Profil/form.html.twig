@@ -33,9 +33,9 @@
         var $containerSkills      = $('div#profil_profilSkills');
 
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-        var indexStudies     = $containerStudies.find(':input').length;
-        var indexExperiences = $containerExperiences.find(':input').length;
-        var indexSkills      = $containerSkills.find(':input').length;
+        var indexStudies     = $containerStudies.find('li').length;
+        var indexExperiences = $containerExperiences.find('li').length;
+        var indexSkills      = $containerSkills.find('li').length;
 
         // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
         $('#add-study').click(function(e) {
