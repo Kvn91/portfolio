@@ -82,7 +82,7 @@ class ProfilController extends Controller
 
         return $this->render('KevinPortfolioBundle:Profil:add.html.twig', ['form' => $form->createView()]);
     }
-
+    
     public function editAction($id, Request $request)
     {
         $em = $this->getDoctrine()->getManager();

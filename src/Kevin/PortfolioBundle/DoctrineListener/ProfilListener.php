@@ -33,6 +33,10 @@ class ProfilListener
         $name = $entity->getName();
         $formattedName = $this->stringsOperations->ucname($name);
         $entity->setName($formattedName);
+
+        $city = $entity->getCity();
+        $formattedCity = ucfirst($city);
+        $entity->setCity($formattedCity);
     }
 
     public function preUpdate(LifecycleEventArgs $args)
@@ -50,5 +54,9 @@ class ProfilListener
         $name = $entity->getName();
         $formattedName = $this->stringsOperations->ucname($name);
         $entity->setName($formattedName);
+
+        $city = $entity->getCity();
+        $formattedCity = ucfirst($city);
+        $entity->setCity($formattedCity);
     }
 }

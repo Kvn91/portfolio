@@ -10,4 +10,14 @@ namespace Kevin\PortfolioBundle\Repository;
  */
 class ProfilRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findProfil()
+    {
+        $query = $this->createQueryBuilder('p')
+            ->leftJoin('p.studies', 'st')
+            ->add('st')
+            ->leftJoin('p.experiences', 'e')
+            ->add('e')
+            ->leftJoin('p.profilSkills', 'ps')
+            ->add('ps');
+    }
 }

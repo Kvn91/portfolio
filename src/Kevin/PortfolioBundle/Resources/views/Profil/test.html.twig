@@ -1,0 +1,11 @@
+{% extends "KevinPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    Ajouter un profil - {{ parent() }}
+{% endblock %}
+
+{% block kevinportfolio_body %}
+    {% for study in profil.studies %}
+        {{ study.establishment }}
+    {% endfor %}
+{% endblock %}

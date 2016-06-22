@@ -21,22 +21,22 @@ use Kevin\PortfolioBundle\Utils\Strings;
 class Profil
 {
     /**
-     * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade={"remove", "persist"})
+     * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade="all", orphanRemoval = true)
      */
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Study", mappedBy="profil", cascade={"remove", "persist"})
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Study", mappedBy="profil", cascade="all", orphanRemoval = true)
      */
     private $studies;
 
     /**
-     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Experience", mappedBy="profil", cascade={"remove", "persist"})
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Experience", mappedBy="profil", cascade="all", orphanRemoval = true)
      */
     private $experiences;
     
     /**
-     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\ProfilSkill", mappedBy="profil", cascade="all")
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\ProfilSkill", mappedBy="profil", cascade="all", orphanRemoval = true)
      */
     private $profilSkills;
 
@@ -508,14 +508,5 @@ class Profil
     public function getPhoneNumber()
     {
         return $this->phoneNumber;
-    }
-
-    /**
-     * @ORM\PreUpdate
-     * @ORM\PrePersist
-     */
-    public function preRegister()
-    {
-        $this->city = ucfirst($this->city);
     }
 }
