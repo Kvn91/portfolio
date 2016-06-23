@@ -80,7 +80,10 @@ class ProfilController extends Controller
             ));
         }
 
-        return $this->render('KevinPortfolioBundle:Profil:add.html.twig', ['form' => $form->createView()]);
+        return $this->render('KevinPortfolioBundle:Profil:add.html.twig', array(
+            'form'   => $form->createView(),
+            'profil' => $profil
+    ));
     }
     
     public function editAction($id, Request $request)
@@ -108,7 +111,8 @@ class ProfilController extends Controller
         }
 
         return $this->render('KevinPortfolioBundle:Profil:edit.html.twig', array(
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'profil' => $profil
         ));
     }
 
@@ -119,8 +123,7 @@ class ProfilController extends Controller
 
     public function testAction()
     {
-        $date1 = new \DateTime('13:00:05');
-
-        var_dump($date1->format("y-m-d"));exit;
+        $em = $this->getDoctrine()->getManager();
+        $profil = $em->getRepository('KevinPortfolioBundle:Profil')->find(6);
     }
 }

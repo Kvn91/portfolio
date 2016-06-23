@@ -12,6 +12,6 @@
     </div>
     <h2>Modifier votre profil</h2>
 
-    {{ include("KevinPortfolioBundle:Profil:form.html.twig") }}
+    {% include "KevinPortfolioBundle:Profil:form.html.twig" with {'profil': profil} %}
 
 {% endblock %}
