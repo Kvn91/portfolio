@@ -1,6 +1,10 @@
 {% form_theme form 'form/collectionWidget.html.twig' %}
-
-<h3>Formulaire de profil</h3>
+{% if profil is defined %}
+<a href="{{ path('kevin_portfolio_delete', {'id': profil.id}) }}"  class="btn btn-default">
+    <i class="glyphicon glyphicon-trash"></i>
+    Supprimer mon profil
+</a>
+{% endif %}
 <div class="well">
     {{ form_start(form) }}
     {{ form_row(form.name) }}
