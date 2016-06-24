@@ -1,0 +1,25 @@
+{% extends "KevinPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    Supprimer son profil - {{ parent() }}
+{% endblock %}
+
+{% block kevinportfolio_body %}
+
+    <h2>Supprimer votre profil</h2>
+
+    <p>
+        Etes-vous certain de vouloir supprimer votre profil ?
+    </p>
+
+    <form action="{{ path('kevin_portfolio_delete', {'id': profil.id}) }}" method="post">
+    <input type="submit" value="Supprimer" class="btn btn-danger" />
+    {{ form_end(form) }}
+    <br/>
+    <p>
+        <a href="{{ path('kevin_portfolio_edit', {'id': profil.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour
+        </a>
+    </p>
+{% endblock %}

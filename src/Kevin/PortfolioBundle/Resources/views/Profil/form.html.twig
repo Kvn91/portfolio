@@ -1,12 +1,20 @@
 {% form_theme form 'form/collectionWidget.html.twig' %}
+
+{% if profil is defined %}
+<a href="{{ path('kevin_portfolio_delete', {'id': profil.id}) }}"  class="btn btn-default">
+    <i class="glyphicon glyphicon-trash"></i>
+    Supprimer mon profil
+</a>
+{% endif %}
+
 <div class="well">
     {{ form_start(form) }}
     {{ form_row(form.name) }}
     {{ form_row(form.firstname) }}
     {{ form_row(form.birthdayDate) }}
     {{ form_row(form.country) }}
-    {{ form_row(form.city) }}
     {{ form_row(form.postalCode) }}
+    {{ form_row(form.city) }}
     {{ form_row(form.address) }}
     {{ form_row(form.title) }}
     {{ form_row(form.email) }}
@@ -15,7 +23,7 @@
     <!-- Affichage de l'image -->
     {{ form_label(form.image) }}
     {{ form_errors(form.image) }}
-    {% if profil.image is not null %}
+    {% if profil is defined and profil.image is not null %}
         <div id="profil-image">
             <img style="height: 110px;width: 90px;background-size: cover;" src="{{ asset(profil.image.getWebPath)}}" alt="{{ profil.image.alt }}">
         </div>
@@ -32,142 +40,3 @@
     {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
     {{ form_end(form) }}
 </div>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
-        var $containerStudies     = $('div#profil_studies');
-        var $containerExperiences = $('div#profil_experiences');
-        var $containerSkills      = $('div#profil_profilSkills');
-
-        // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-        var indexStudies     = $containerStudies.find(':input').length;
-        var indexExperiences = $containerExperiences.find(':input').length;
-        var indexSkills      = $containerSkills.find(':input').length;
-
-        // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
-        $('#add-study').click(function(e) {
-            addStudy($containerStudies);
-
-            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-            return false;
-        });
-        $('#add-experience').click(function(e) {
-            addExperience($containerExperiences);
-
-            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-            return false;
-        });
-        $('#add-skill').click(function(e) {
-            addSkill($containerSkills);
-
-            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-            return false;
-        });
-
-        // S'il n'y a aucune entrée dans la collection on ajoute un champs vide, sinon
-        if (indexStudies == 0) {
-            addStudy($containerStudies);
-        }
-        if (indexExperiences == 0) {
-            addExperience($containerExperiences);
-        }
-        if (indexSkills == 0) {
-            addSkill($containerSkills);
-        }
-
-        function addStudy($containerStudies) {
-            // On récupère le prototype
-            var template = $containerStudies.attr('data-prototype')
-                    .replace(/__name__/g,        indexStudies);
-
-            // On crée un objet jquery qui contient ce template
-            var $prototype = $(template);
-
-            // On affiche le numéro de l'entrée
-            $prototype.find('h4').append(indexStudies + 1);
-
-            // On ajoute le prototype modifié dans la balise <ul>
-            $containerStudies.find('ul').append($prototype);
-
-            // On ajoute l'event sur les liens delete
-            var $deleteLink = $prototype.find('.remove-study');
-            $deleteLink.click( function (e) {
-                $prototype.remove();
-
-                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-                return false;
-            });
-            indexStudies++;
-        }
-
-        function addExperience($containerExperiences) {
-            // On récupère le prototype
-            var template = $containerExperiences.attr('data-prototype')
-                    .replace(/__name__/g,        indexExperiences);
-
-            // On crée un objet jquery qui contient ce template
-            var $prototype = $(template);
-
-            // On affiche le numéro de l'entrée
-            $prototype.find('h4').append(indexExperiences + 1);
-
-            // On ajoute le prototype modifié dans la balise <ul>
-            $containerExperiences.find('ul').append($prototype);
-
-            // On ajoute l'event sur les liens delete
-            var $deleteLink = $prototype.find('.remove-experience');
-            $deleteLink.click( function (e) {
-                $prototype.remove();
-
-                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-                return false;
-            });
-            indexExperiences++;
-        }
-
-        function addSkill($containerSkills) {
-            // On récupère le prototype
-            var template = $containerSkills.attr('data-prototype')
-                    .replace(/__name__/g,        indexSkills);
-
-            // On crée un objet jquery qui contient ce template
-            var $prototype = $(template);
-
-            // On affiche le numéro de l'entrée
-            $prototype.find('h4').append(indexSkills + 1);
-
-            // On ajoute le prototype modifié dans la balise <ul>
-            $containerSkills.find('ul').append($prototype);
-
-            // On ajoute l'event sur les liens delete
-            var $deleteLink = $prototype.find('.remove-experience');
-            $deleteLink.click( function (e) {
-                $prototype.remove();
-
-                e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-                return false;
-            });
-            indexSkills++;
-        }
-
-        /*
-        Ajouter la suppression des blocs aux boutons supprimer
-         */
-        $('.remove-study').click(function (e) {
-            $(this).parent('li').remove();
-            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-        });
-
-        $('.remove-experience').click(function (e) {
-            $(this).parent('li').remove();
-            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-        });
-
-        $('.remove-skill').click(function (e) {
-            $(this).parent('li').remove();
-            e.preventDefault(); // évite qu'un # apparaisse dans l'URL
-        });
-
-    });
-</script>

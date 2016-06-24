@@ -81,9 +81,8 @@ class ProfilController extends Controller
         }
 
         return $this->render('KevinPortfolioBundle:Profil:add.html.twig', array(
-            'form'   => $form->createView(),
-            'profil' => $profil
-    ));
+            'form'   => $form->createView()
+        ));
     }
     
     public function editAction($id, Request $request)
@@ -106,7 +105,9 @@ class ProfilController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Profil modifié');
 
             return $this->redirectToRoute('kevin_portfolio_edit', array(
-                'id' => $id
+                'id'     => $id,
+                'profil' => $profil
+
             ));
         }
 
@@ -116,9 +117,31 @@ class ProfilController extends Controller
         ));
     }
 
-    public function deleteAction()
+    public function deleteAction($id, Request $request)
     {
-        return $this->render('KevinPortfolioBundle:Profil:delete.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $profil = $em->getRepository('KevinPortfolioBundle:Profil')->find($id);
+
+        if (null === $profil){
+            throw new NotFoundHttpException('Ce profil n\'existe pas');
+        }
+
+        $form = $this->get('form.factory')->create();
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+            //$em->remove($profil);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('notice', 'Profil supprimé');
+
+            return $this->redirectToRoute('kevin_portfolio_add');
+        }
+
+        return $this->render('KevinPortfolioBundle:Profil:delete.html.twig', array(
+            'form'   => $form->createView(),
+            'profil' => $profil
+        ));
     }
 
     public function testAction()

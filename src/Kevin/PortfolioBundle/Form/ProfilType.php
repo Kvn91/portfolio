@@ -31,10 +31,10 @@ class ProfilType extends AbstractType
        $builder
            ->add('name',         TextType::class)
            ->add('firstname',    TextType::class)
-           ->add('birthdayDate', BirthdayType::class, array('years' => $yearsArray))
+           ->add('birthdayDate', BirthdayType::class, array('years' => $yearsArray, 'format' => 'ddMMMyyyy'))
            ->add('country',      CountryType::class)
-           ->add('city',         TextType::class)
            ->add('postalCode',   IntegerType::class)
+           ->add('city',         TextType::class)
            ->add('address',      TextType::class)
            ->add('title',        TextType::class)
            ->add('email',        EmailType::class)
