@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3c56d1e6daa789349e4dbb3f76b97827",
+    "hash": "be970024bd6f5000188b02ebe3c4bdec",
     "content-hash": "380b94937e0bfd7a970a1d25531e1e59",
     "packages": [
         {
@@ -959,16 +959,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "7.4.3",
+            "version": "7.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "415cef198620774bd54f63af097006ab3e6c64aa"
+                "reference": "75cc4cb41d1f590391f15484df5bdc13963c2b1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/415cef198620774bd54f63af097006ab3e6c64aa",
-                "reference": "415cef198620774bd54f63af097006ab3e6c64aa",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/75cc4cb41d1f590391f15484df5bdc13963c2b1a",
+                "reference": "75cc4cb41d1f590391f15484df5bdc13963c2b1a",
                 "shasum": ""
             },
             "require": {
@@ -1019,7 +1019,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2016-06-15 13:08:56"
+            "time": "2016-06-29 14:09:08"
         },
         {
             "name": "incenteev/composer-parameter-handler",

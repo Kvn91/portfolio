@@ -70,6 +70,7 @@ class ProfilController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
             // Traitement du formulaire
+            $profil->setUser($this->getUser());
             $em->persist($profil);
             $em->flush();
 
@@ -99,6 +100,7 @@ class ProfilController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
 
+            $profil->setUser($this->getUser());
             $em->persist($profil);
             $em->flush();
 

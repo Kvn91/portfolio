@@ -21,7 +21,7 @@ use Kevin\PortfolioBundle\Utils\Strings;
 class Profil
 {
     /**
-     * @ORM\OneToOne(targetEntity="Kevin\UserBundle\Entity\User", cascade="persist")
+     * @ORM\OneToOne(targetEntity="Kevin\UserBundle\Entity\User", mappedBy="profil", cascade="persist")
      */
     private $user;
 

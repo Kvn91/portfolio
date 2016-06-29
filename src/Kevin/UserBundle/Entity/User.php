@@ -23,7 +23,7 @@ class User extends BaseUser
     protected $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", cascade="all", orphanRemoval = true)
+     * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", inversedBy="user", cascade="all", orphanRemoval = true)
      */
     protected $profil;
 
