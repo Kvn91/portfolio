@@ -1,0 +1,7 @@
+kevin_home:
+    path:     /
+    defaults: { _controller: KevinCoreBundle:Core:index }
+
+kevin_accueil:
+    path:     /accueil
+    defaults: { _controller: KevinCoreBundle:Core:accueil }

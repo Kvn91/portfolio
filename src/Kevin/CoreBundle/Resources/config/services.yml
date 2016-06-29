@@ -1,0 +1,4 @@
+services:
+#    kevin_core.example:
+#        class: Kevin\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

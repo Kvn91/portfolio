@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Kevin\PortfolioBundle\KevinPortfolioBundle(),
             new Kevin\UserBundle\KevinUserBundle(),
             new \FOS\UserBundle\FOSUserBundle(),
+            new Kevin\CoreBundle\KevinCoreBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

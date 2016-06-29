@@ -1,3 +1,0 @@
-kevin_user_homepage:
-    path:     /
-    defaults: { _controller: KevinUserBundle:Default:index }

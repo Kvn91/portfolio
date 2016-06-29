@@ -21,6 +21,11 @@ use Kevin\PortfolioBundle\Utils\Strings;
 class Profil
 {
     /**
+     * @ORM\OneToOne(targetEntity="Kevin\UserBundle\Entity\User", cascade="persist")
+     */
+    private $user;
+
+    /**
      * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade="all", orphanRemoval = true)
      */
     private $image;
@@ -508,5 +513,29 @@ class Profil
     public function getPhoneNumber()
     {
         return $this->phoneNumber;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Kevin\UserBundle\Entity\User $user
+     *
+     * @return Profil
+     */
+    public function setUser(\Kevin\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Kevin\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

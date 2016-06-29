@@ -33,28 +33,5 @@ class User extends BaseUser
 
         // Ajouter le code de personnalisation de l'user
     }
-
-    /**
-     * Set profil
-     *
-     * @param \Kevin\PortfolioBundle\Entity\Profil $profil
-     *
-     * @return User
-     */
-    public function setProfil(\Kevin\PortfolioBundle\Entity\Profil $profil = null)
-    {
-        $this->profil = $profil;
-
-        return $this;
-    }
-
-    /**
-     * Get profil
-     *
-     * @return \Kevin\PortfolioBundle\Entity\Profil
-     */
-    public function getProfil()
-    {
-        return $this->profil;
-    }
 }
+

@@ -2,33 +2,46 @@
 
 namespace Kevin\PortfolioBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Misd\PhoneNumberBundle\Validator\Constraints\PhoneNumber as AssertPhoneNumber;
+use Kevin\PortfolioBundle\Utils\Strings;
 
 /**
  * Profil
  *
  * @ORM\Table(name="profil")
  * @ORM\Entity(repositoryClass="Kevin\PortfolioBundle\Repository\ProfilRepository")
+ * @UniqueEntity(fields={"email"}, message="Cet email existe déjà")
+ * @UniqueEntity(fields={"phoneNumber"}, message="Ce numéro existe déjà")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Profil
 {
     /**
-     * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade={"remove", "persist"})
+     * @ORM\OneToOne(targetEntity="Kevin\UserBundle\Entity\User")
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade="all", orphanRemoval = true)
      */
     private $image;
 
     /**
-     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Experience", mappedBy="profil", cascade={"remove", "persist"})
-     */
-    private $experiences;
-
-    /**
-     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Study", mappedBy="profil", cascade={"remove", "persist"})
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Study", mappedBy="profil", cascade="all", orphanRemoval = true)
      */
     private $studies;
 
     /**
-     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\ProfilSkill", mappedBy="profil")
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\Experience", mappedBy="profil", cascade="all", orphanRemoval = true)
+     */
+    private $experiences;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Kevin\PortfolioBundle\Entity\ProfilSkill", mappedBy="profil", cascade="all", orphanRemoval = true)
      */
     private $profilSkills;
 
@@ -73,6 +86,7 @@ class Profil
      * @var int
      *
      * @ORM\Column(name="postalCode", type="integer")
+     * @Assert\Length(min=5, max=5)
      */
     private $postalCode;
 
@@ -101,13 +115,13 @@ class Profil
      * @var string
      *
      * @ORM\Column(name="email", type="string", unique=true)
+     * @Assert\Email()
      */
     private $email;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="phoneNumber", type="string")
+     * @ORM\Column(name="phoneNumber", type="phone_number", unique=true)
+     * @AssertPhoneNumber
      */
     private $phoneNumber;
 
@@ -317,9 +331,9 @@ class Profil
      */
     public function __construct()
     {
-        $this->experiences = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->studies = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->profilSkills = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->experiences  = new ArrayCollection();
+        $this->studies      = new ArrayCollection();
+        $this->profilSkills = new ArrayCollection();
     }
 
     /**
@@ -357,6 +371,8 @@ class Profil
     {
         $this->experiences[] = $experience;
 
+        $experience->setProfil($this);
+
         return $this;
     }
 
@@ -390,6 +406,7 @@ class Profil
     public function addStudy(\Kevin\PortfolioBundle\Entity\Study $study)
     {
         $this->studies[] = $study;
+        $study->setProfil($this);
 
         return $this;
     }
@@ -397,9 +414,9 @@ class Profil
     /**
      * Remove study
      *
-     * @param \Kevin\PortfolioBundle\Entity\Study $study
+     * @param Study $study
      */
-    public function removeStudy(\Kevin\PortfolioBundle\Entity\Study $study)
+    public function removeStudy(Study $study)
     {
         $this->studies->removeElement($study);
     }
@@ -425,6 +442,8 @@ class Profil
     {
         $this->profilSkills[] = $profilSkill;
 
+        $profilSkill->setProfil($this);
+
         return $this;
     }
 
@@ -446,5 +465,53 @@ class Profil
     public function getProfilSkills()
     {
         return $this->profilSkills;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Profil
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set phoneNumber
+     *
+     * @param string $phoneNumber
+     *
+     * @return Profil
+     */
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneNumber
+     *
+     * @return phone_number
+     */
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
     }
 }
