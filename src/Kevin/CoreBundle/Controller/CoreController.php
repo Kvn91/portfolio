@@ -20,7 +20,6 @@ class CoreController extends Controller
         }else{
 
         }
-        
         return $this->render('KevinCoreBundle:Core:accueil.html.twig');
     }
 }

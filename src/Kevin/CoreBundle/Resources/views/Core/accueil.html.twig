@@ -5,5 +5,10 @@
 {% endblock %}
 
 {% block body %}
-    <a href="{{ path('kevin_portfolio_add') }}">Créer mon profil</a>
+    {% if app.user.profil is null %}
+        <a href="{{ path('kevin_portfolio_add') }}">Créer mon profil</a>
+    {% else %}
+        <a href="{{ path('kevin_portfolio_add') }}">Modifier mon profil</a>
+    {% endif %}
+
 {% endblock %}
