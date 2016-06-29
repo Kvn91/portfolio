@@ -21,5 +21,17 @@ class User extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Profil", cascade="all", orphanRemoval = true)
+     */
+    protected $profil;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        // Ajouter le code de personnalisation de l'user
+    }
 }
 
