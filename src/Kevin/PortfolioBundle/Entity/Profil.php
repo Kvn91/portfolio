@@ -21,11 +21,6 @@ use Kevin\PortfolioBundle\Utils\Strings;
 class Profil
 {
     /**
-     * @ORM\OneToOne(targetEntity="Kevin\UserBundle\Entity\User", mappedBy="profil", cascade="persist")
-     */
-    private $user;
-
-    /**
      * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade="all", orphanRemoval = true)
      */
     private $image;
@@ -525,6 +520,8 @@ class Profil
     public function setUser(\Kevin\UserBundle\Entity\User $user = null)
     {
         $this->user = $user;
+
+        $user->setProfil($this);
 
         return $this;
     }

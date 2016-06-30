@@ -7,6 +7,7 @@ use Kevin\PortfolioBundle\Entity\Profil;
 use Kevin\PortfolioBundle\Entity\ProfilSkill;
 use Kevin\PortfolioBundle\Entity\Study;
 use Kevin\PortfolioBundle\Form\ProfilType;
+use libphonenumber\PhoneNumber;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -132,7 +133,8 @@ class ProfilController extends Controller
         $form = $this->get('form.factory')->create();
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
-            //$em->remove($profil);
+
+            $em->remove($profil);
             $em->flush();
 
             $request->getSession()->getFlashBag()->add('notice', 'Profil supprimé');
@@ -149,6 +151,58 @@ class ProfilController extends Controller
     public function testAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $profil = $em->getRepository('KevinPortfolioBundle:Profil')->find(6);
+
+        $profil = new Profil();
+
+        $study = new Study();
+        $study
+            ->setTitle('Dev web')
+            ->setEstablishment('EEMI')
+            ->setBeginMonth(9)
+            ->setBeginYear(2014)
+            ->setEndMonth(6)
+            ->setEndYear(2015)
+        ;
+
+        $experience = new Experience();
+        $experience
+            ->setTitle('ingé réseau')
+            ->setEstablishment('BNP')
+            ->setBeginMonth(05)
+            ->setBeginYear(2013)
+            ->setEndMonth(06)
+            ->setEndYear(2015)
+        ;
+
+        $skill = $em->getRepository('KevinPortfolioBundle:Skill')->find(1);
+        $profilSkill = new ProfilSkill();
+        $profilSkill
+            ->setLevel(5)
+            ->setSkill($skill)
+        ;
+
+        $birthdayDate = new \DateTime('01-12-1996');
+        $phoneNumber = new PhoneNumber('+33685546352');
+        $profil
+            ->setFirstname('jean-kevin')
+            ->setPhoneNumber($phoneNumber)
+            ->setEmail('test@gmail.com')
+            ->setTitle('Dev web')
+            ->setAddress('33 rue du Maréchal')
+            ->setBirthdayDate($birthdayDate)
+            ->setCity('paris')
+            ->setCountry('FR')
+            ->setName('Dupond')
+            ->setPostalCode(99999)
+            ->addStudy($study)
+            ->addExperience($experience)
+            ->addProfilSkill($profilSkill)
+        ;
+
+        $profil->setUser($this->getUser());
+
+        $em->persist($profil);
+        $em->flush();
+        exit('in');
     }
 }
