@@ -1,6 +1,8 @@
 <?php
 
 namespace Kevin\PortfolioBundle\Repository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use Kevin\PortfolioBundle\Entity\Profil;
 
 /**
  * ProfilRepository
@@ -10,14 +12,46 @@ namespace Kevin\PortfolioBundle\Repository;
  */
 class ProfilRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findProfil()
+    public function getProfils($page)
     {
         $query = $this->createQueryBuilder('p')
+            ->leftJoin('p.image', 'i')
+            ->addSelect('i')
             ->leftJoin('p.studies', 'st')
-            ->add('st')
+            ->addSelect('st')
             ->leftJoin('p.experiences', 'e')
-            ->add('e')
+            ->addSelect('e')
             ->leftJoin('p.profilSkills', 'ps')
-            ->add('ps');
+            ->addSelect('ps')
+            ->leftJoin('ps.skill', 'sk')
+            ->addSelect('sk')
+            ->getQuery();
+
+        $query->setFirstResult(($page-1) * Profil::NB_PROFILS_PER_PAGE)
+            ->setMaxResults(Profil::NB_PROFILS_PER_PAGE);
+
+        $results = new Paginator($query, true);
+
+        return $results;
+    }
+
+    public function getProfil($id)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->leftJoin('p.image', 'i')
+            ->addSelect('i')
+            ->leftJoin('p.studies', 'st')
+            ->addSelect('st')
+            ->leftJoin('p.experiences', 'e')
+            ->addSelect('e')
+            ->leftJoin('p.profilSkills', 'ps')
+            ->addSelect('ps')
+            ->leftJoin('ps.skill', 'sk')
+            ->addSelect('sk')
+            ->andWhere('p.id = :id')
+                ->setParameter('id', $id)
+            ->getQuery();
+
+        return $query->getSingleResult();
     }
 }

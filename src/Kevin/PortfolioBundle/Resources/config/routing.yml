@@ -1,7 +1,10 @@
-kevin_portfolio_homepage:
-    path:     /
+kevin_portfolio_index:
+    path:     /admin/index
     defaults:
         _controller: KevinPortfolioBundle:Profil:index
+        page:        1
+    requirements:
+        page: \d+
 
 kevin_portfolio_add:
     path:     /add
@@ -28,7 +31,7 @@ kevin_portfolio_test:
         _controller: KevinPortfolioBundle:Profil:test
 
 kevin_portfolio_skill_index:
-    path:     /backend/skills/{page}
+    path:     /admin/skills/{page}
     defaults:
         _controller: KevinPortfolioBundle:Skill:index
         page:        1
@@ -36,19 +39,19 @@ kevin_portfolio_skill_index:
         page: \d+
 
 kevin_portfolio_skill_add:
-    path:     /backend/skills/add
+    path:     /admin/skills/add
     defaults:
         _controller: KevinPortfolioBundle:Skill:add
 
 kevin_portfolio_skill_edit:
-    path:     /backend/skills/edit/{id}
+    path:     /admin/skills/edit/{id}
     defaults:
         _controller: KevinPortfolioBundle:Skill:edit
     requirements:
         id: \d+
 
 kevin_portfolio_skill_delete:
-    path:     /backend/skills/delete/{id}
+    path:     /admin/skills/delete/{id}
     defaults:
         _controller: KevinPortfolioBundle:Skill:delete
     requirements:

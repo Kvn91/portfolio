@@ -14,12 +14,16 @@ class CoreController extends Controller
 
     public function accueilAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
+        $profil = $em->getRepository('KevinPortfolioBundle:Profil')->getProfil($user->getProfil()->getId());
         if (null === $user){
             return $this->redirectToRoute('fos_user_security_login');
         }else{
 
         }
-        return $this->render('KevinCoreBundle:Core:accueil.html.twig');
+        return $this->render('KevinCoreBundle:Core:accueil.html.twig', array(
+            'profil' => $profil
+        ));
     }
 }

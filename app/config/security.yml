@@ -21,6 +21,9 @@ security:
     main_register:
       pattern:               ^/register/$
       anonymous:             true
+    main_index:
+      pattern:               ^/$
+      anonymous:             true
     main:
       pattern:               ^/
       anonymous:             false
@@ -31,8 +34,9 @@ security:
         default_target_path: kevin_accueil
       logout:
         path:                fos_user_security_logout
-        target:              kevin_portfolio_homepage
+        target:              kevin_home
       remember_me:
         secret:              %secret%
 
   access_control:
+    - { path: ^/admin, roles: ROLE_ADMIN}

@@ -20,6 +20,8 @@ use Kevin\PortfolioBundle\Utils\Strings;
  */
 class Profil
 {
+    const NB_PROFILS_PER_PAGE = 20;
+
     /**
      * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade="all", orphanRemoval = true)
      */

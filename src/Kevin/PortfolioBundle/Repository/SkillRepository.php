@@ -12,7 +12,6 @@ use Kevin\PortfolioBundle\Entity\Skill;
  */
 class SkillRepository extends \Doctrine\ORM\EntityRepository
 {
-
     public function getSkills($page)
     {
         $query = $this->createQueryBuilder('s')

@@ -11,12 +11,30 @@ use libphonenumber\PhoneNumber;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class ProfilController extends Controller
 {
-    public function indexAction()
+    public function indexAction($page)
     {
-        return $this->render('KevinPortfolioBundle:Profil:index.html.twig');
+        if ($page < 1){
+            throw new NotFoundHttpException('Page ' . $page . ' inexistante.');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $profilsList = $em->getRepository('KevinPortfolioBundle:Profil')->getProfils($page);
+
+        $nbPages = ceil(count($profilsList) / Profil::NB_PROFILS_PER_PAGE);
+
+        if ($page > $nbPages){
+            throw new NotFoundHttpException('Page ' . $page . ' inexistante.');
+        }
+
+        return $this->render('KevinPortfolioBundle:Profil:index.html.twig', array(
+            'profilsList'  => $profilsList,
+            'page'    => $page,
+            'nbPages' => $nbPages
+        ));
     }
 
     public function addAction(Request $request)
@@ -101,7 +119,6 @@ class ProfilController extends Controller
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
 
-            $profil->setUser($this->getUser());
             $em->persist($profil);
             $em->flush();
 
@@ -139,7 +156,7 @@ class ProfilController extends Controller
 
             $request->getSession()->getFlashBag()->add('notice', 'Profil supprimé');
 
-            return $this->redirectToRoute('kevin_portfolio_add');
+            return $this->redirectToRoute('kevin_accueil');
         }
 
         return $this->render('KevinPortfolioBundle:Profil:delete.html.twig', array(

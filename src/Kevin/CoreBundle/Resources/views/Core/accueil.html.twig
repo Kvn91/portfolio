@@ -8,7 +8,6 @@
     {% if app.user.profil is null %}
         <a href="{{ path('kevin_portfolio_add') }}">Créer mon profil</a>
     {% else %}
-        <a href="{{ path('kevin_portfolio_add') }}">Modifier mon profil</a>
+        <a href="{{ path('kevin_portfolio_edit', {'id': profil.id}) }}">Modifier mon profil</a>
     {% endif %}
-
 {% endblock %}

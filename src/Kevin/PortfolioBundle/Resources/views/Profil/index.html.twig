@@ -7,5 +7,16 @@
         {% endfor %}
     </div>
 
-    Hello World!
+    <h2>Liste des profils</h2>
+
+    <ul>
+        {% for profil in profilsList %}
+            <li>
+                {{ profil.firstname }} {{ profil.name|upper }}
+                <a href="{{ path('kevin_portfolio_edit', {'id': profil.id}) }}" class="btn btn-default">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
