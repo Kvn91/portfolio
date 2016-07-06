@@ -16,12 +16,16 @@ class CoreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
-        $profil = $em->getRepository('KevinPortfolioBundle:Profil')->getProfil($user->getProfil()->getId());
         if (null === $user){
             return $this->redirectToRoute('fos_user_security_login');
-        }else{
-
         }
+
+        if (null !== $user->getProfil()){
+            $profil = $em->getRepository('KevinPortfolioBundle:Profil')->getProfil($user->getProfil()->getId());
+        }else{
+            $profil = null;
+        }
+        
         return $this->render('KevinCoreBundle:Core:accueil.html.twig', array(
             'profil' => $profil
         ));

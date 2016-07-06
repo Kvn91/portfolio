@@ -20,10 +20,7 @@ use Kevin\PortfolioBundle\Utils\Strings;
  */
 class Profil
 {
-    /**
-     * @ORM\OneToOne(targetEntity="Kevin\UserBundle\Entity\User")
-     */
-    private $user;
+    const NB_PROFILS_PER_PAGE = 20;
 
     /**
      * @ORM\OneToOne(targetEntity="Kevin\PortfolioBundle\Entity\Image", cascade="all", orphanRemoval = true)
@@ -124,6 +121,18 @@ class Profil
      * @AssertPhoneNumber
      */
     private $phoneNumber;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="createdAt", type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="updatedAt", type="datetime")
+     */
+    private $updatedAt;
 
     /**
      * Get id
@@ -513,5 +522,31 @@ class Profil
     public function getPhoneNumber()
     {
         return $this->phoneNumber;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Kevin\UserBundle\Entity\User $user
+     *
+     * @return Profil
+     */
+    public function setUser(\Kevin\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        $user->setProfil($this);
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Kevin\UserBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
